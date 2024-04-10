@@ -1,4 +1,8 @@
 .input-search {
-  background-color: var(--greyColor);
+  background-color: var(--greyLightColor);
   color: var(--blackColor);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10px;
+  width: 300px;
 }

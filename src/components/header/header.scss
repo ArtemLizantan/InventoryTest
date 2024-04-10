@@ -1,0 +1,14 @@
+.header {
+  background-color: var(--whiteColor);
+  padding: 20px;
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 150px;
+  }
+}

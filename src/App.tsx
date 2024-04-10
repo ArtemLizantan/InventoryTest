@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Home from "./screens/home/Home";
 import Layout from "./components/layout/Layout";
 import Header from "./components/header/Header";
+import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
   const { pathname } = useLocation();
@@ -15,11 +16,14 @@ function App() {
   return (
     <div className="wrapper">
       <Header />
-      <Layout>
-        <Routes>
-          <Route path={ROUTES.HOME} element={<Home />} />
-        </Routes>
-      </Layout>
+      <div className="wrapper__layout">
+        <Sidebar />
+        <Layout>
+          <Routes>
+            <Route path={ROUTES.HOME} element={<Home />} />
+          </Routes>
+        </Layout>
+      </div>
     </div>
   );
 }

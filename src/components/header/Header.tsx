@@ -1,5 +1,7 @@
 import Logo from "../logo/Logo";
 import Search from "./search/Search";
+import "./header.scss";
+import CurrentDate from "./currentDate/CurrentDate";
 
 const Header = () => {
   return (
@@ -9,7 +11,9 @@ const Header = () => {
           <Logo />
           <Search />
         </div>
-        <div className="header__right"></div>
+        <div className="header__right">
+          <CurrentDate />
+        </div>
       </div>
     </header>
   );

@@ -1,0 +1,19 @@
+.sidebar {
+  display: flex;
+  justify-content: center;
+  background-color: var(--lightGrayColor);
+  height: 100%;
+  max-width: 250px;
+  width: 100%;
+  padding: 20px 0;
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    width: 100%;
+    align-items: center;
+  }
+  &__center {
+    width: 100%;
+  }
+}

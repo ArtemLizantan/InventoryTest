@@ -7,7 +7,7 @@ body {
   font-size: 14px;
   background-color: var(--greyColor);
   box-sizing: border-box;
-  color: var(--whiteColor);
+  color: var(--blackColor);
 }
 
 .wrapper {
@@ -16,12 +16,17 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  &__layout {
+    display: flex;
+    align-items: flex-start;
+    height: calc(100vh - 78px);
+  }
 }
 
 main {
+  height: 100%;
   flex: 1 1 auto;
   transition: all 0.5s;
-  margin-top: 120px;
 }
 
 body {
@@ -31,10 +36,11 @@ body {
   --textColor: #1a1919;
   --borderColor: #d3d8dc;
   --secondaryTextColor: #060e1e;
-  --greyColor: #686868;
+  --greyLightColor: lightgray;
   --yellowColor: #f2f60f;
   --lightGrayColor: rgba(227, 230, 240, 0.72);
   --blackColor: #000;
   --lightBlueColor: rgba(54, 87, 203, 0.3);
   --greenColor: #4bcb36;
+  --greyColor: gray;
 }

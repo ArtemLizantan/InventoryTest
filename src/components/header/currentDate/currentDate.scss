@@ -1,0 +1,28 @@
+.date {
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  &__top,
+  &__bottom-curren-item {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  &__bottom {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  &__bottom-current-item {
+    &--time {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      svg {
+        stroke: var(--greenColor);
+      }
+    }
+  }
+}
