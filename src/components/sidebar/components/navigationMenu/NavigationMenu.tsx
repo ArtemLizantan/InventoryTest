@@ -1,15 +1,8 @@
 import { NavLink } from "react-router-dom";
 import "./navigationMenu.scss";
+import { INavigationItemProps } from "../../../../interfaces/interfaces";
 
-const navigation = [
-  { id: 1, name: "Приход", path: "/" },
-  { id: 2, name: "Группы", path: "/" },
-  { id: 3, name: "Продукты", path: "/" },
-  { id: 4, name: "Пользователи", path: "/" },
-  { id: 5, name: "Настройки", path: "/" },
-];
-
-const NavigationMenu = () => {
+const NavigationMenu = ({ navigation }: INavigationItemProps) => {
   return (
     <nav className="navigation">
       <ul className="navigation__list">
@@ -17,7 +10,7 @@ const NavigationMenu = () => {
           <li key={id} className="navigation__list-item">
             <NavLink
               to={path}
-              className={(isActive) =>
+              className={({ isActive }) =>
                 "navigation__list-link" +
                 (!isActive ? " unselected" : " _active")
               }

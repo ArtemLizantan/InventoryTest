@@ -5,6 +5,10 @@ import Home from "./screens/home/Home";
 import Layout from "./components/layout/Layout";
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
+import Groups from "./screens/groups/Groups";
+import Products from "./screens/products/Products";
+import Settings from "./screens/settings/Settings";
+import Users from "./screens/users/Users";
 
 function App() {
   const { pathname } = useLocation();
@@ -21,6 +25,10 @@ function App() {
         <Layout>
           <Routes>
             <Route path={ROUTES.HOME} element={<Home />} />
+            <Route path={ROUTES.GROUPS} element={<Groups />} />
+            <Route path={ROUTES.PRODUCTS} element={<Products />} />
+            <Route path={ROUTES.SETTINGS} element={<Settings />} />
+            <Route path={ROUTES.USERS} element={<Users />} />
           </Routes>
         </Layout>
       </div>
