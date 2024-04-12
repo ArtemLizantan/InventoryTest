@@ -30,7 +30,7 @@ function App() {
             <Route path={ROUTES.PRODUCTS} element={<Products />} />
             <Route path={ROUTES.SETTINGS} element={<Settings />} />
             <Route path={ROUTES.USERS} element={<Users />} />
-            <Route path={ROUTES.PARISHES} element={<Orders />} />
+            <Route path={ROUTES.ORDERS} element={<Orders />} />
           </Routes>
         </Layout>
       </div>

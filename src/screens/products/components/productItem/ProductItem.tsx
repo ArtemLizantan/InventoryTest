@@ -10,8 +10,6 @@ const ProductItem = ({
   id,
   img,
 }: IProductItemProps) => {
-  console.log(price);
-
   return (
     <div id={id.toString()} className="product-item">
       <div className="product-item__body">

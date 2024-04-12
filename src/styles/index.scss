@@ -27,6 +27,10 @@ main {
   height: 100%;
   flex: 1 1 auto;
   transition: all 0.5s;
+  overflow: auto;
+}
+
+section {
   padding: 50px;
 }
 
