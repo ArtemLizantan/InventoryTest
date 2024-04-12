@@ -1,0 +1,28 @@
+.product-item {
+  padding: 20px;
+  background-color: var(--whiteColor);
+  border-radius: 10px;
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__info {
+    flex-basis: 250px;
+  }
+  &__photo {
+    width: 100px;
+    height: 100px;
+  }
+  &__guarante,
+  &__currency {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  &__smallItem {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--greyColor);
+  }
+}

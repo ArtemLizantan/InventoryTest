@@ -4,5 +4,5 @@ export const ROUTES = {
   GROUPS: "/groups",
   PRODUCTS: "/products",
   SETTINGS: "/settings",
-  PARISHES: "/parishes",
+  ORDERS: "/orders",
 };

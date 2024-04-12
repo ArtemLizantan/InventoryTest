@@ -5,7 +5,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  background-color: var(--greyColor);
+  background-color: var(--lightGrayColor);
   box-sizing: border-box;
   color: var(--blackColor);
 }
@@ -27,6 +27,7 @@ main {
   height: 100%;
   flex: 1 1 auto;
   transition: all 0.5s;
+  padding: 50px;
 }
 
 body {

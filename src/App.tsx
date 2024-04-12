@@ -9,6 +9,7 @@ import Groups from "./screens/groups/Groups";
 import Products from "./screens/products/Products";
 import Settings from "./screens/settings/Settings";
 import Users from "./screens/users/Users";
+import Orders from "./screens/orders/Orders";
 
 function App() {
   const { pathname } = useLocation();
@@ -29,6 +30,7 @@ function App() {
             <Route path={ROUTES.PRODUCTS} element={<Products />} />
             <Route path={ROUTES.SETTINGS} element={<Settings />} />
             <Route path={ROUTES.USERS} element={<Users />} />
+            <Route path={ROUTES.PARISHES} element={<Orders />} />
           </Routes>
         </Layout>
       </div>

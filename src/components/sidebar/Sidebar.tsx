@@ -4,7 +4,7 @@ import NavigationUser from "./components/navigationUser/NavigationUser";
 import "./sidebar.scss";
 
 const navigation = [
-  { id: 1, name: "Приход", path: ROUTES.PARISHES },
+  { id: 1, name: "Приход", path: ROUTES.ORDERS },
   { id: 2, name: "Группы", path: ROUTES.GROUPS },
   { id: 3, name: "Продукты", path: ROUTES.PRODUCTS },
   { id: 4, name: "Пользователи", path: ROUTES.USERS },
