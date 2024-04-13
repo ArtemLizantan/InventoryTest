@@ -1,8 +1,9 @@
 .order-item {
-  padding: 20px;
-  width: 100%;
-  background-color: var(--whiteColor);
   border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(21, 177, 39, 0.25);
+  padding: 23px 30px;
+  width: 100%;
   &__body {
     display: flex;
     align-items: center;
@@ -10,10 +11,30 @@
   }
   &__info {
     flex-basis: 250px;
+    text-align: center;
+  }
+  &__title {
+    color: var(--blackColor);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 38.8px;
+  }
+  &__show-products {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-direction: row-reverse;
+  }
+  &__products-lenght {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
   }
 }
-.order-items {
+
+.order-items{
   display: flex;
   align-items: flex-start;
-  gap: 50px;
+  gap: 30px;
 }

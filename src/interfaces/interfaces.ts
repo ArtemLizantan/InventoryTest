@@ -9,7 +9,7 @@ export interface INavigationItemProps {
 }
 
 export interface IOrder {
-  id: string;
+  id: string | number;
   title: string;
   date: string;
   description: string;
@@ -19,12 +19,12 @@ export interface IOrder {
 export interface IProduct {
   id: number;
   serialNumber: number;
-  isNew: number;
-  photo: string;
+  isNew?: number;
+  photo?: string;
   title: string;
   type: string;
-  specification: string;
-  guarantee: {
+  specification?: string;
+  guarantee?: {
     start: string;
     end: string;
   };
@@ -33,8 +33,8 @@ export interface IProduct {
     symbol: string;
     isDefault: number;
   }[];
-  order: number;
-  date: string;
+  order?: number;
+  date?: string;
 }
 
 export interface IProductItemProps {
@@ -45,6 +45,8 @@ export interface IProductItemProps {
   id: number;
   img: string;
   serialNumber: number;
+  photo?: string;
+  orderTitle: string;
   price: {
     value: number;
     symbol: string;
@@ -58,6 +60,8 @@ export interface IOrderItemProps {
   products: IProductItemProps[];
   id: number;
   nameOrder: string;
+  photo: string;
+  countProducts: number;
 }
 
 export interface IOrderProductsProps {

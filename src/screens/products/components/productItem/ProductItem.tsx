@@ -1,6 +1,7 @@
 import React from "react";
 import { IProductItemProps } from "../../../../interfaces/interfaces";
 import "./productItem.scss";
+
 const ProductItem = ({
   title,
   type,
@@ -46,7 +47,6 @@ const ProductItem = ({
               </React.Fragment>
             ))}
         </div>
-        {/* <div className="product-item__info"></div> */}
       </div>
     </div>
   );

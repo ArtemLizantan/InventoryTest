@@ -6,8 +6,12 @@ const Orders = () => {
   return (
     <section className="orders">
       <div className="orders__body">
-        <Title text="Приходы" />
-        <RenderOrders />
+        <div className="orders__top">
+          <Title text="Приходы" />
+        </div>
+        <div className="orders__bottom">
+          <RenderOrders />
+        </div>
       </div>
     </section>
   );
