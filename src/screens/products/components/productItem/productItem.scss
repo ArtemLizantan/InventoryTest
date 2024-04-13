@@ -2,13 +2,19 @@
   padding: 20px;
   background-color: var(--whiteColor);
   border-radius: 10px;
+  overflow-x: auto; /* добавляем горизонтальный скролл при необходимости */
+  white-space: nowrap;
   &__body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
+    overflow-x: auto; /* добавляем горизонтальный скролл при необходимости */
+    white-space: nowrap;
   }
   &__info {
     flex-basis: 250px;
+    min-width: 250px;
   }
   &__photo {
     width: 100px;

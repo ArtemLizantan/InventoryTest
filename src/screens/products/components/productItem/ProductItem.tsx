@@ -9,6 +9,8 @@ const ProductItem = ({
   price,
   id,
   img,
+  serialNumber,
+  orderTitle,
 }: IProductItemProps) => {
   return (
     <div id={id.toString()} className="product-item">
@@ -18,6 +20,12 @@ const ProductItem = ({
         </div>
         <div className="product-item__info product-item__title">{title}</div>
         <div className="product-item__info product-item__type">{type}</div>
+        <div className="product-item__info product-item__type">
+          {serialNumber}
+        </div>
+        <div className="product-item__info product-item__type">
+          {orderTitle}
+        </div>
         <div className="product-item__info product-item__guarante">
           <div className="product-item__guarante-wrapper">
             <span className="product-item__smallItem">c </span>
@@ -38,7 +46,7 @@ const ProductItem = ({
               </React.Fragment>
             ))}
         </div>
-        <div className="product-item__info"></div>
+        {/* <div className="product-item__info"></div> */}
       </div>
     </div>
   );

@@ -9,7 +9,13 @@ export const ordersSlice = createSlice({
     error: {},
     orders: [] as IOrder[],
   },
-  reducers: {},
+  reducers: {
+    deleteOrder(state, action) {
+      state.orders = state.orders.filter(
+        (order) => order.id !== action.payload
+      );
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getOrders.pending, (state) => {

@@ -3,24 +3,19 @@ import { useSelector } from "react-redux";
 import { useActions } from "../../../../hooks/useActions";
 import { useEffect } from "react";
 import OrderItems from "../orderItems/OrderItems";
+import { IOrder } from "../../../../interfaces/interfaces";
 
 const RenderOrders = () => {
   const { orders } = useSelector((state: RootState) => state.orders);
-  const { products } = useSelector((state: RootState) => state.products);
 
   const { getOrders } = useActions();
-  const { getProducts } = useActions();
 
   useEffect(() => {
     getOrders();
   }, [getOrders]);
 
-  useEffect(() => {
-    getProducts();
-  }, [getProducts]);
-
-  return orders.map(({ title, date, id }) => (
-    <OrderItems id={id} products={[]} title={title} date={date} />
+  return orders.map(({ title, date, id, products }: IOrder) => (
+    <OrderItems key={id} products={products} title={title} date={date} />
   ));
 };
 

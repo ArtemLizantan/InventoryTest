@@ -44,8 +44,18 @@ export interface IProductItemProps {
   endGuarantee: string;
   id: number;
   img: string;
+  serialNumber: number;
   price: {
     value: number;
     symbol: string;
   }[];
+}
+
+export interface IOrderItemProps {
+  title: string;
+  date: string;
+  sum: number;
+  products: IProductItemProps[];
+  id: number;
+  nameOrder: string;
 }
