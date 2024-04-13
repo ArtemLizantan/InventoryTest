@@ -59,3 +59,15 @@ export interface IOrderItemProps {
   id: number;
   nameOrder: string;
 }
+
+export interface IOrderProductsProps {
+  title: string;
+  products: IProduct[];
+  setClose: (value: boolean) => void;
+}
+
+export interface IOrderProductProps {
+  id: number;
+  photo: string;
+  title: string;
+}

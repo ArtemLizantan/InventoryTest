@@ -4,9 +4,21 @@ import { MdDelete } from "react-icons/md";
 import { VscListSelection } from "react-icons/vsc";
 import OrderProducts from "../orderProducts/OrderProducts";
 import { IOrderItemProps } from "../../../../interfaces/interfaces";
+import Popup from "../../../../components/popup/Popup";
+import OrderProduct from "../orderProducts/orderProduct/OrderProduct";
 
 const OrderItem = ({ title, date, products, nameOrder }: IOrderItemProps) => {
   const [activeOrder, setActiveOrder] = useState(false);
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handleDeleteClick = () => {
+    setIsPopupOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsPopupOpen(false);
+  };
 
   const showProducts = () => {
     setActiveOrder((prev) => !prev);
@@ -38,7 +50,7 @@ const OrderItem = ({ title, date, products, nameOrder }: IOrderItemProps) => {
             </button>
           </div>
           <div className="order-item__info">
-            <button className="order-item__btn">
+            <button onClick={handleDeleteClick} className="order-item__btn">
               <MdDelete />
             </button>
           </div>
@@ -50,6 +62,24 @@ const OrderItem = ({ title, date, products, nameOrder }: IOrderItemProps) => {
           products={products}
           title={title}
         />
+      )}
+      {isPopupOpen && (
+        <Popup closePopup={handleClose}>
+          <div className="product-popup">
+            <div className="product-popup__top">
+              <h2>Удалить этот приход?</h2>
+              <ul className="product-popup__list">
+                {products.map(({ id, title, photo }) => (
+                  <OrderProduct key={id} id={id} title={title} photo={photo} />
+                ))}
+              </ul>
+            </div>
+            <div className="product-popup__bottom">
+              <button>Удалить</button>
+              <button onClick={handleClose}>Отменить</button>
+            </div>
+          </div>
+        </Popup>
       )}
     </div>
   );
