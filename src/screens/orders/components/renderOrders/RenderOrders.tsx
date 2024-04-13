@@ -15,7 +15,13 @@ const RenderOrders = () => {
   }, [getOrders]);
 
   return orders.map(({ title, date, id, products }: IOrder) => (
-    <OrderItems key={id} products={products} title={title} date={date} />
+    <OrderItems
+      key={id}
+      id={id}
+      products={products}
+      title={title}
+      date={date}
+    />
   ));
 };
 

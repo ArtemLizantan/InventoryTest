@@ -78,6 +78,25 @@
           ],
           "order": 3,
           "date": "2017-06-29 12:09:33"
+        },
+        {
+          "id": 4,
+          "serialNumber": 123234,
+          "isNew": 1,
+          "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBX0oCI7GLfufdBPwp-5L5PKXty1G1ks50waU5v1SgUw&s",
+          "title": "Product 4",
+          "type": "Phones",
+          "specification": "Specification 1",
+          "guarantee": {
+            "start": "2017-06-29 12:09:33",
+            "end": "2017-06-29 12:09:33"
+          },
+          "price": [
+            { "value": 100, "symbol": "USD", "isDefault": 0 },
+            { "value": 2600, "symbol": "UAH", "isDefault": 1 }
+          ],
+          "order": 3,
+          "date": "2017-06-29 12:09:33"
         }
       ]
     }
@@ -128,6 +147,25 @@
       "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1z0iZ0jtBktjcdQFAtxkcLlOZN7dwZKDvpPybm8NJtw&s",
       "title": "Product 3",
       "type": "Monitors",
+      "specification": "Specification 1",
+      "guarantee": {
+        "start": "2017-06-29 12:09:33",
+        "end": "2017-06-29 12:09:33"
+      },
+      "price": [
+        { "value": 100, "symbol": "USD", "isDefault": 0 },
+        { "value": 2600, "symbol": "UAH", "isDefault": 1 }
+      ],
+      "order": 3,
+      "date": "2017-06-29 12:09:33"
+    },
+    {
+      "id": 4,
+      "serialNumber": 123234,
+      "isNew": 1,
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBX0oCI7GLfufdBPwp-5L5PKXty1G1ks50waU5v1SgUw&s",
+      "title": "Product 4",
+      "type": "Phones",
       "specification": "Specification 1",
       "guarantee": {
         "start": "2017-06-29 12:09:33",

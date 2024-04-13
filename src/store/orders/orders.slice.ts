@@ -32,3 +32,5 @@ export const ordersSlice = createSlice({
       });
   },
 });
+
+export const { deleteOrder } = ordersSlice.actions;

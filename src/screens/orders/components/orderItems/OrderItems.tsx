@@ -6,8 +6,16 @@ import OrderProducts from "../orderProducts/OrderProducts";
 import { IOrderItemProps } from "../../../../interfaces/interfaces";
 import Popup from "../../../../components/popup/Popup";
 import OrderProduct from "../orderProducts/orderProduct/OrderProduct";
+import { useDispatch } from "react-redux";
+import { deleteOrder } from "../../../../store/orders/orders.slice";
 
-const OrderItem = ({ title, date, products, nameOrder }: IOrderItemProps) => {
+const OrderItem = ({
+  title,
+  date,
+  products,
+  nameOrder,
+  id,
+}: IOrderItemProps) => {
   const [activeOrder, setActiveOrder] = useState(false);
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -31,6 +39,12 @@ const OrderItem = ({ title, date, products, nameOrder }: IOrderItemProps) => {
       totalPrice += sumInDollars.value;
     });
     return totalPrice;
+  };
+
+  const dispatch = useDispatch();
+
+  const handleDeleteOrder = (id: number) => {
+    dispatch(deleteOrder(id));
   };
 
   return (
@@ -75,7 +89,7 @@ const OrderItem = ({ title, date, products, nameOrder }: IOrderItemProps) => {
               </ul>
             </div>
             <div className="product-popup__bottom">
-              <button>Удалить</button>
+              <button onClick={() => handleDeleteOrder(id)}>Удалить</button>
               <button onClick={handleClose}>Отменить</button>
             </div>
           </div>
