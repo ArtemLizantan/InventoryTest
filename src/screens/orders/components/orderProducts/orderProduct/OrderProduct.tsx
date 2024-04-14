@@ -1,7 +1,6 @@
 import { MdDelete } from "react-icons/md";
 import "./orderProduct.scss";
 import { useState } from "react";
-import Popup from "../../../../../components/popup/Popup";
 import { IOrderProductProps } from "../../../../../interfaces/interfaces";
 
 const OrderProduct = ({ id, photo, title }: IOrderProductProps) => {
@@ -9,10 +8,6 @@ const OrderProduct = ({ id, photo, title }: IOrderProductProps) => {
 
   const handleDeleteClick = () => {
     setIsPopupOpen(true);
-  };
-
-  const handleClose = () => {
-    setIsPopupOpen(false);
   };
 
   return (
@@ -33,16 +28,6 @@ const OrderProduct = ({ id, photo, title }: IOrderProductProps) => {
           </div>
         </div>
       </div>
-      {/* {isPopupOpen && (
-        <Popup closePopup={handleClose}>
-          <div className="product-popup">
-            <div className="product-popup__bottom">
-              <button>Удалить</button>
-              <button onClick={handleClose}>Отменить</button>
-            </div>
-          </div>
-        </Popup>
-      )} */}
     </li>
   );
 };

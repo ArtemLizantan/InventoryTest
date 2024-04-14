@@ -1,7 +1,7 @@
 import { IOrderProductsProps } from "../../../../interfaces/interfaces";
 import OrderProduct from "./orderProduct/OrderProduct";
 import "./orderProducts.scss";
-const OrderProducts = ({ title, products, setClose }: IOrderProductsProps) => {
+const OrderProducts = ({ products }: IOrderProductsProps) => {
   return (
     <ul className="order-products__list">
       {products.map(({ id, title, photo }) => (

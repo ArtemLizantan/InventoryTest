@@ -1,21 +1,31 @@
 import { RootState } from "@reduxjs/toolkit/query";
 import { useSelector } from "react-redux";
 import { useActions } from "../../../../hooks/useActions";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import OrderItems from "../orderItems/OrderItems";
 import { IOrder } from "../../../../interfaces/interfaces";
 import OrderProducts from "../orderProducts/OrderProducts";
 
 const RenderOrders = () => {
   const { orders, isLoading } = useSelector((state: RootState) => state.orders);
-  const [activeOrder, setActiveOrder] = useState({});
-  const [idOrder, setIdOrder] = useState(0);
+  const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
 
   const { getOrders } = useActions();
 
   useEffect(() => {
     getOrders();
   }, [getOrders]);
+
+  const handleOrderClick = useCallback(
+    (orderId: string) => {
+      setSelectedOrderId(orderId === selectedOrderId ? null : orderId);
+    },
+    [selectedOrderId]
+  );
+
+  const handleClose = useCallback(() => {
+    setSelectedOrderId(null);
+  }, []);
 
   return isLoading ? (
     <div>Loading</div>
@@ -29,29 +39,23 @@ const RenderOrders = () => {
             products={products}
             title={title}
             date={date}
-            setActiveOrder={setActiveOrder}
-            setIdOrder={setIdOrder}
+            isOpen={id === selectedOrderId}
+            onClick={() => handleOrderClick(id)}
           />
         ))}
       </div>
-      <div className="orders__wrapper-products">
-        {activeOrder && <div className="orders__products-block"></div>}
-      </div>
+      {selectedOrderId && (
+        <div className="orders__wrapper-products">
+          <button onClick={handleClose}>Close</button>
+          {orders
+            .filter(({ id }) => id === selectedOrderId)
+            .map(({ title, id, products }: IOrder) => (
+              <OrderProducts key={id} title={title} products={products} />
+            ))}
+        </div>
+      )}
     </>
   );
 };
 
 export default RenderOrders;
-
-
-// {orders.map(
-//   ({ title, id, products }: IOrder) =>
-//     id === idOrder && (
-//       <OrderProducts
-//         setClose={setActiveOrder}
-//         title={title}
-//         products={products}
-//         key={id}
-//       />
-//     )
-// )}

@@ -8,13 +8,12 @@ import OrderProduct from "../orderProducts/orderProduct/OrderProduct";
 import { useDispatch } from "react-redux";
 import { deleteOrder } from "../../../../store/orders/orders.slice";
 
-const OrderItem = ({
+const OrderItems = ({
   title,
   date,
   products,
   id,
-  setActiveOrder,
-  setIdOrder,
+  onClick,
 }: IOrderItemProps) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -24,11 +23,6 @@ const OrderItem = ({
 
   const handleClose = () => {
     setIsPopupOpen(false);
-  };
-
-  const showProducts = () => {
-    setIdOrder(id);
-    setActiveOrder((prev) => !prev);
   };
 
   const calculateOrderPrice = (index: number) => {
@@ -56,7 +50,7 @@ const OrderItem = ({
               <span>{products.length} </span>
               <span>Продукта</span>
             </div>
-            <button onClick={showProducts} className="order-item__btn">
+            <button onClick={onClick} className="order-item__btn">
               <VscListSelection />
             </button>
           </div>
@@ -96,4 +90,4 @@ const OrderItem = ({
   );
 };
 
-export default OrderItem;
+export default OrderItems;
