@@ -19,29 +19,31 @@ const ProductItem = ({
         <div className="product-item__info">
           <img className="product-item__photo" src={img} alt="product photo" />
         </div>
-        <div className="product-item__info product-item__title">{title}</div>
-        <div className="product-item__info product-item__type">{type}</div>
-        <div className="product-item__info product-item__type">
-          {serialNumber}
+        <div className="product-item__info product-item__name">
+          <div className="product-item__underline">{title}</div>
+          <div className="product-item__serialNumber">{serialNumber}</div>
         </div>
-        <div className="product-item__info product-item__type">
-          {orderTitle}
+        <div className="product-item__info">{type}</div>
+        <div className="product-item__info">
+          <div className="product-item__underline">{orderTitle}</div>
         </div>
         <div className="product-item__info product-item__guarante">
           <div className="product-item__guarante-wrapper">
             <span className="product-item__smallItem">c </span>
             <span>{startGuarantee}</span>
           </div>
-          <div>
+          <div className="product-item__guarante-wrapper">
             <span className="product-item__smallItem">по </span>
             <span>{endGuarantee}</span>
           </div>
         </div>
         <div className="product-item__info product-item__currency">
-          {price &&
+          {price.length > 0 &&
             price.map(({ value, symbol }, index) => (
               <React.Fragment key={index}>
-                <span className="" key={value}>
+                <span
+                  className={symbol === "USD" ? "product-item__smallItem" : ""}
+                >
                   {value + " " + symbol}
                 </span>
               </React.Fragment>

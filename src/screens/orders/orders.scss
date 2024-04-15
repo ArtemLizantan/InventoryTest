@@ -6,22 +6,28 @@
   }
   &__bottom {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
   }
   &__wrapper {
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    flex: 1 1 auto;
   }
   &__products-block {
     padding: 20px;
     background-color: var(--whiteColor);
   }
-  &__wrapper-products{
-    padding: 20px;
+  &__wrapper-products {
+    padding: 40px;
     background-color: var(--whiteColor);
     width: 50%;
+    position: relative;
+  }
+  &__products-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
   }
 }

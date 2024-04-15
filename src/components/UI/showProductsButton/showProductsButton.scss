@@ -1,0 +1,24 @@
+.showProductsBtn {
+  background-color: unset;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid gray;
+  border-radius: 50%;
+  transition: 0.4s ease;
+  &:hover {
+    background-color: var(--blueColor);
+    svg {
+      fill: var(--whiteColor);
+    }
+  }
+  svg {
+    fill: var(--greyColor);
+    transition: fill 0.4s ease;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

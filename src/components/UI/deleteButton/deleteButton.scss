@@ -1,0 +1,15 @@
+.deleteBtn {
+  background-color: unset;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  svg {
+    fill: var(--blackColor);
+    transition: fill 0.4s ease;
+    width: 30px;
+    height: 30px;
+    &:hover {
+      fill: var(--redColor);
+    }
+  }
+}

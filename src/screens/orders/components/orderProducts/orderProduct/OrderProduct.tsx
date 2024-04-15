@@ -2,6 +2,7 @@ import { MdDelete } from "react-icons/md";
 import "./orderProduct.scss";
 import { useState } from "react";
 import { IOrderProductProps } from "../../../../../interfaces/interfaces";
+import DeleteButton from "../../../../../components/UI/deleteButton/DeleteButton";
 
 const OrderProduct = ({ id, photo, title }: IOrderProductProps) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -19,12 +20,7 @@ const OrderProduct = ({ id, photo, title }: IOrderProductProps) => {
             <div className="order-products__info">{title}</div>
           </div>
           <div className="order-product__right">
-            <button
-              onClick={handleDeleteClick}
-              className="order-products__list-btn"
-            >
-              <MdDelete />
-            </button>
+            <DeleteButton onClick={handleDeleteClick} />
           </div>
         </div>
       </div>

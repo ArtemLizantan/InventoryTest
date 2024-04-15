@@ -7,6 +7,8 @@ import Popup from "../../../../components/popup/Popup";
 import OrderProduct from "../orderProducts/orderProduct/OrderProduct";
 import { useDispatch } from "react-redux";
 import { deleteOrder } from "../../../../store/orders/orders.slice";
+import DeleteButton from "../../../../components/UI/deleteButton/DeleteButton";
+import ShowProductsButton from "../../../../components/UI/showProductsButton/ShowProductsButton";
 
 const OrderItems = ({
   title,
@@ -14,6 +16,7 @@ const OrderItems = ({
   products,
   id,
   onClick,
+  openProducts,
 }: IOrderItemProps) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -44,27 +47,29 @@ const OrderItems = ({
     <div className="order-items">
       <div className="order-item">
         <div className="order-item__body">
-          <div className="order-item__info order-item__title">{title}</div>
+          {openProducts && (
+            <div className="order-item__info order-item__title">{title}</div>
+          )}
           <div className="order-item__info order-item__show-products">
+            <ShowProductsButton onClick={onClick} />
             <div className="order-item__products-lenght">
               <span>{products.length} </span>
               <span>Продукта</span>
             </div>
-            <button onClick={onClick} className="order-item__btn">
-              <VscListSelection />
-            </button>
           </div>
           <div className="order-item__info">{date}</div>
-          <div className="order-item__info order-item__price">
-            <div className="">{calculateOrderPrice(0)}$</div>
-            <div className="">{calculateOrderPrice(1)}UAN</div>
-          </div>
+          {openProducts && (
+            <div className="order-item__info order-item__price">
+              <div className="">{calculateOrderPrice(0)}$</div>
+              <div className="">{calculateOrderPrice(1)}UAN</div>
+            </div>
+          )}
 
-          <div className="order-item__info">
-            <button onClick={handleDeleteClick} className="order-item__btn">
-              <MdDelete />
-            </button>
-          </div>
+          {openProducts && (
+            <div className="order-item__info">
+              <DeleteButton onClick={handleDeleteClick} />
+            </div>
+          )}
         </div>
       </div>
 

@@ -22,13 +22,13 @@ export interface IProduct {
   isNew?: number;
   photo?: string;
   title: string;
-  type: string;
+  type?: string | undefined;
   specification?: string;
   guarantee?: {
-    start: string;
-    end: string;
+    start?: string;
+    end?: string;
   };
-  price: {
+  price?: {
     value: number;
     symbol: string;
     isDefault: number;
@@ -40,13 +40,13 @@ export interface IProduct {
 export interface IProductItemProps {
   title: string;
   type: string;
-  startGuarantee: string;
-  endGuarantee: string;
+  startGuarantee?: string;
+  endGuarantee?: string;
   id: number;
-  img: string;
+  img?: string;
   serialNumber: number;
   photo?: string;
-  orderTitle: string;
+  orderTitle?: string;
   price: {
     value: number;
     symbol: string;
@@ -58,20 +58,21 @@ export interface IOrderItemProps {
   date: string;
   sum: number;
   products: IProductItemProps[];
-  id: number;
+  id: number | string;
   nameOrder: string;
   photo: string;
   countProducts: number;
+  openProducts: boolean;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface IOrderProductsProps {
   title: string;
   products: IProduct[];
-  setClose: (value: boolean) => void;
 }
 
 export interface IOrderProductProps {
   id: number;
-  photo: string;
+  photo: string | undefined
   title: string;
 }

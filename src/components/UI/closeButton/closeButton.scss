@@ -1,0 +1,21 @@
+.closeBtn {
+  background-color: unset;
+  border: none;
+  cursor: pointer;
+  background-color: var(--whiteColor);
+  border: 1px solid gray;
+  border-radius: 50%;
+  padding: 5px;
+  svg {
+    fill: var(--blackColor);
+    transition: fill 0.4s ease;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      fill: var(--redColor);
+    }
+  }
+}
