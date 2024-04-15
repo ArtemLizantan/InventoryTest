@@ -1,4 +1,5 @@
 import Title from "../../components/title/Title";
+import transition from "../../transition";
 import RenderOrders from "./components/renderOrders/RenderOrders";
 import "./orders.scss";
 
@@ -17,4 +18,4 @@ const Orders = () => {
   );
 };
 
-export default Orders;
+export default transition(Orders);

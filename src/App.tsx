@@ -10,13 +10,14 @@ import Products from "./screens/products/Products";
 import Settings from "./screens/settings/Settings";
 import Users from "./screens/users/Users";
 import Orders from "./screens/orders/Orders";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
-  const { pathname } = useLocation();
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [location.pathname]);
 
   return (
     <div className="wrapper">
@@ -24,14 +25,16 @@ function App() {
       <div className="wrapper__layout">
         <Sidebar />
         <Layout>
-          <Routes>
-            <Route path={ROUTES.HOME} element={<Home />} />
-            <Route path={ROUTES.GROUPS} element={<Groups />} />
-            <Route path={ROUTES.PRODUCTS} element={<Products />} />
-            <Route path={ROUTES.SETTINGS} element={<Settings />} />
-            <Route path={ROUTES.USERS} element={<Users />} />
-            <Route path={ROUTES.ORDERS} element={<Orders />} />
-          </Routes>
+          <AnimatePresence mode="wait" initial={false}>
+            <Routes location={location} key={location.pathname}>
+              <Route path={ROUTES.HOME} element={<Home />} />
+              <Route path={ROUTES.GROUPS} element={<Groups />} />
+              <Route path={ROUTES.PRODUCTS} element={<Products />} />
+              <Route path={ROUTES.SETTINGS} element={<Settings />} />
+              <Route path={ROUTES.USERS} element={<Users />} />
+              <Route path={ROUTES.ORDERS} element={<Orders />} />
+            </Routes>
+          </AnimatePresence>
         </Layout>
       </div>
     </div>

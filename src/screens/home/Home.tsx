@@ -1,5 +1,7 @@
+import transition from "../../transition";
+
 const Home = () => {
   return <div></div>;
 };
 
-export default Home;
+export default transition(Home);

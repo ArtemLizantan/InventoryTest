@@ -1,5 +1,7 @@
+import transition from "../../transition";
+
 const Users = () => {
   return <div></div>;
 };
 
-export default Users;
+export default transition(Users);

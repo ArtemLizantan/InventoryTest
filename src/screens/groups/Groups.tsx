@@ -1,5 +1,7 @@
+import transition from "../../transition";
+
 const Groups = () => {
   return <div></div>;
 };
 
-export default Groups;
+export default transition(Groups);

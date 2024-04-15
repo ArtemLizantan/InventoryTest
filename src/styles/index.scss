@@ -1,4 +1,5 @@
 @import "./reset.scss";
+@import "./root.scss";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
@@ -28,25 +29,31 @@ main {
   flex: 1 1 auto;
   transition: all 0.5s;
   overflow: auto;
+  position: relative;
 }
 
 section {
   padding: 50px;
 }
 
-body {
-  --main-bg: #1e2538;
-  --whiteColor: #fff;
-  --blueColor: #3657cb;
-  --textColor: #1a1919;
-  --borderColor: #d3d8dc;
-  --secondaryTextColor: #060e1e;
-  --greyLightColor: lightgray;
-  --yellowColor: #f2f60f;
-  --lightGrayColor: rgba(227, 230, 240, 0.72);
-  --blackColor: #000;
-  --lightBlueColor: rgba(54, 87, 203, 0.3);
-  --greenColor: #4bcb36;
-  --greyColor: gray;
-  --redColor: red;
+.slide-in {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: var(--greyLightColor);
+  transform-origin: left;
+  z-index: 3000;
+}
+
+.slide-out {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  background-color: var(--greyLightColor);
+  transform-origin: right;
+  z-index: 3000;
 }
