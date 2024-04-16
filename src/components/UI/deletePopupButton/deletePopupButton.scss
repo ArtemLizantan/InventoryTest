@@ -1,0 +1,18 @@
+.delete-popup-btn {
+  border: none;
+  background-color: unset;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 15px;
+  background-color: var(--redColor);
+  border-radius: 10px;
+  color: var(--whiteColor);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  &:hover {
+    transform: translateY(-4px);
+  }
+}

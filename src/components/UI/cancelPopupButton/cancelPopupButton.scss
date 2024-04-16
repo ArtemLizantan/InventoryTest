@@ -1,0 +1,11 @@
+.cancel-popup-btn {
+  border: none;
+  background-color: unset;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
