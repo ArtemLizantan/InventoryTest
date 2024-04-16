@@ -1,7 +1,5 @@
 import { useState } from "react";
 import "./orderItems.scss";
-import { MdDelete } from "react-icons/md";
-import { VscListSelection } from "react-icons/vsc";
 import { IOrderItemProps } from "../../../../interfaces/interfaces";
 import Popup from "../../../../components/popup/Popup";
 import OrderProduct from "../orderProducts/orderProduct/OrderProduct";
@@ -44,7 +42,7 @@ const OrderItems = ({
   };
 
   return (
-    <div className="order-items">
+    <>
       <div className="order-item">
         <div className="order-item__body">
           {openProducts && (
@@ -74,24 +72,26 @@ const OrderItems = ({
       </div>
 
       {isPopupOpen && (
-        <Popup closePopup={handleClose}>
-          <div className="product-popup">
-            <div className="product-popup__top">
-              <h2>Удалить этот приход?</h2>
-              <ul className="product-popup__list">
-                {products.map(({ id, title, photo }) => (
-                  <OrderProduct key={id} id={id} title={title} photo={photo} />
-                ))}
-              </ul>
-            </div>
-            <div className="product-popup__bottom">
-              <button onClick={() => handleDeleteOrder(id)}>Удалить</button>
-              <button onClick={handleClose}>Отменить</button>
-            </div>
-          </div>
+        <Popup
+          title="Удалить этот приход?"
+          onClickRemove={handleClose}
+          onClickDelete={() => handleDeleteOrder(id)}
+          closePopup={handleClose}
+        >
+          <ul className="order-item__popup-list">
+            {products.map(({ id, title, photo, serialNumber }) => (
+              <OrderProduct
+                key={id}
+                id={id}
+                serialNumber={serialNumber}
+                title={title}
+                photo={photo}
+              />
+            ))}
+          </ul>
         </Popup>
       )}
-    </div>
+    </>
   );
 };
 

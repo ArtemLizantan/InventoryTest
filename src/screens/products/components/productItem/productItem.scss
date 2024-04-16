@@ -1,9 +1,20 @@
 .product-item {
-  padding: 20px;
-  background-color: var(--whiteColor);
   border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 0px 10px 0px rgba(21, 177, 39, 0.25);
+  padding: 23px 30px;
   overflow-x: auto;
   white-space: nowrap;
+  &::-webkit-scrollbar {
+    width: 5px;
+    background-color: var(--whiteColor);
+    border-radius: 5px;
+    height: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--greyColor);
+    border-radius: 5px;
+  }
 
   &__underline,
   &__name,
@@ -27,18 +38,6 @@
     align-items: center;
     justify-content: space-between;
     text-align: center;
-    overflow-x: auto;
-    white-space: nowrap;
-    &::-webkit-scrollbar {
-      width: 5px;
-      background-color: var(--whiteColor);
-      border-radius: 5px;
-      height: 5px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: var(--greyColor);
-      border-radius: 5px;
-    }
   }
   &__info {
     flex-basis: 250px;

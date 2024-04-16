@@ -4,8 +4,14 @@ import "./orderProducts.scss";
 const OrderProducts = ({ products }: IOrderProductsProps) => {
   return (
     <ul className="order-products__list">
-      {products.map(({ id, title, photo }) => (
-        <OrderProduct key={id} id={id} title={title} photo={photo} />
+      {products.map(({ id, title, photo, serialNumber }) => (
+        <OrderProduct
+          serialNumber={serialNumber}
+          key={id}
+          id={id}
+          title={title}
+          photo={photo}
+        />
       ))}
     </ul>
   );

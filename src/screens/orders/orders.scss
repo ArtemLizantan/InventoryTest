@@ -5,7 +5,6 @@
     gap: 20px;
   }
   &__bottom {
-    display: flex;
     align-items: flex-start;
     gap: 20px;
   }
@@ -20,8 +19,10 @@
     background-color: var(--whiteColor);
   }
   &__wrapper-products {
-    padding: 40px;
-    background-color: var(--whiteColor);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(21, 177, 39, 0.25);
+    padding: 23px 30px;
     width: 50%;
     position: relative;
   }

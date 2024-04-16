@@ -10,9 +10,8 @@ const Orders = () => {
         <div className="orders__top">
           <Title text="Приходы" />
         </div>
-        <div className="orders__bottom">
-          <RenderOrders />
-        </div>
+
+        <RenderOrders />
       </div>
     </section>
   );
