@@ -15,6 +15,13 @@ export const ordersSlice = createSlice({
         (order) => order.id !== action.payload
       );
     },
+    deleteProducts(state, action) {
+      state.orders.forEach((order) => {
+        order.products = order.products.filter(
+          (product) => product.id !== action.payload
+        );
+      });
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -33,4 +40,4 @@ export const ordersSlice = createSlice({
   },
 });
 
-export const { deleteOrder } = ordersSlice.actions;
+export const { deleteOrder, deleteProducts } = ordersSlice.actions;

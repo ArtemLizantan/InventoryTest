@@ -42,7 +42,6 @@ const Popup = ({
       </div>
     </div>
   );
-  Ё;
 };
 
 export default Popup;

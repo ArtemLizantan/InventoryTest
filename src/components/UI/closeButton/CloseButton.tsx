@@ -4,9 +4,9 @@ import { IoMdClose } from "react-icons/io";
 interface ICLoseButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   position?: "static" | "relative" | "absolute" | "sticky" | "fixed";
-  right: string;
-  left: string;
-  top: string;
+  right?: number;
+  left?: number;
+  top?: number;
 }
 
 const CloseButton = ({

@@ -34,7 +34,9 @@ const RenderOrders = () => {
   ) : (
     <>
       <div
-        style={{ display: selectedOrderId ? "flex" : "block" }}
+        style={{
+          display: selectedOrderId ? "flex" : "block",
+        }}
         className="orders__bottom"
       >
         <div className="orders__wrapper">
@@ -57,6 +59,7 @@ const RenderOrders = () => {
             .map(({ title, id, products }: IOrder) => (
               <div key={id} className="orders__wrapper-products">
                 <h2 className="orders__products-title">{title}</h2>
+
                 <AddButton text="Добавить продукт" />
                 <CloseButton
                   position={"absolute"}
@@ -64,7 +67,11 @@ const RenderOrders = () => {
                   top={-20}
                   onClick={handleClose}
                 />
-                <OrderProducts title={title} products={products} />
+                {products.length != 0 ? (
+                  <OrderProducts title={title} products={products} />
+                ) : (
+                  <div className="orders__nothing">Продуктов нет!</div>
+                )}
               </div>
             ))}
       </div>

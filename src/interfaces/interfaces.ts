@@ -73,6 +73,9 @@ export interface IOrderProductsProps {
 
 export interface IOrderProductProps {
   id: number;
-  photo: string | undefined
+  photo: string | undefined;
   title: string;
+  serialNumber: string | number;
+  inPopup?: boolean;
+  handleDeleteClick?: () => void;
 }
