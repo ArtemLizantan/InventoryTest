@@ -5,6 +5,7 @@ import { RootState } from "@reduxjs/toolkit/query";
 import ProductItem from "../productItem/ProductItem";
 import { IProduct } from "../../../../interfaces/interfaces";
 import CustomSelect from "../../../../components/customSelect/CustomSelect";
+import Preloader from "../../../../components/preloader/Preloader";
 
 const options = [
   { value: "All", label: "Все" },
@@ -13,7 +14,9 @@ const options = [
 ];
 
 const RenderProducts = () => {
-  const { products } = useSelector((state: RootState) => state.products);
+  const { products, isLoading } = useSelector(
+    (state: RootState) => state.products
+  );
   const { orders } = useSelector((state: RootState) => state.orders);
   const { getProducts } = useActions();
   const { getOrders } = useActions();
@@ -49,59 +52,63 @@ const RenderProducts = () => {
         onSelect={(option) => filterByType(option.value)}
       />
 
-      <div className="products__wrapper">
-        {applyFilter
-          ? filteredProducts.map(
-              ({
-                id,
-                title,
-                type,
-                guarantee: { start, end },
-                price,
-                photo,
-                serialNumber,
-                order,
-              }: IProduct) => (
-                <ProductItem
-                  serialNumber={serialNumber}
-                  img={photo}
-                  key={id}
-                  type={type}
-                  id={id}
-                  title={title}
-                  startGuarantee={start}
-                  endGuarantee={end}
-                  price={price}
-                  orderTitle={getOrderTitleById(order)}
-                />
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <div className="products__wrapper">
+          {applyFilter
+            ? filteredProducts.map(
+                ({
+                  id,
+                  title,
+                  type,
+                  guarantee: { start, end },
+                  price,
+                  photo,
+                  serialNumber,
+                  order,
+                }: IProduct) => (
+                  <ProductItem
+                    serialNumber={serialNumber}
+                    img={photo}
+                    key={id}
+                    type={type}
+                    id={id}
+                    title={title}
+                    startGuarantee={start}
+                    endGuarantee={end}
+                    price={price}
+                    orderTitle={getOrderTitleById(order)}
+                  />
+                )
               )
-            )
-          : products.map(
-              ({
-                id,
-                title,
-                type,
-                guarantee: { start, end },
-                price,
-                photo,
-                serialNumber,
-                order,
-              }: IProduct) => (
-                <ProductItem
-                  serialNumber={serialNumber}
-                  img={photo}
-                  key={id}
-                  type={type}
-                  id={id}
-                  title={title}
-                  startGuarantee={start}
-                  endGuarantee={end}
-                  price={price}
-                  orderTitle={getOrderTitleById(order)}
-                />
-              )
-            )}
-      </div>
+            : products.map(
+                ({
+                  id,
+                  title,
+                  type,
+                  guarantee: { start, end },
+                  price,
+                  photo,
+                  serialNumber,
+                  order,
+                }: IProduct) => (
+                  <ProductItem
+                    serialNumber={serialNumber}
+                    img={photo}
+                    key={id}
+                    type={type}
+                    id={id}
+                    title={title}
+                    startGuarantee={start}
+                    endGuarantee={end}
+                    price={price}
+                    orderTitle={getOrderTitleById(order)}
+                  />
+                )
+              )}
+        </div>
+      )}
     </>
   );
 };

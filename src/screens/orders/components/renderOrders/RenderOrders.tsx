@@ -7,6 +7,7 @@ import { IOrder } from "../../../../interfaces/interfaces";
 import OrderProducts from "../orderProducts/OrderProducts";
 import CloseButton from "../../../../components/UI/closeButton/CloseButton";
 import AddButton from "../../../../components/UI/addButton/AddButton";
+import Preloader from "../../../../components/preloader/Preloader";
 
 const RenderOrders = () => {
   const { orders, isLoading } = useSelector((state: RootState) => state.orders);
@@ -30,7 +31,7 @@ const RenderOrders = () => {
   }, []);
 
   return isLoading ? (
-    <div>Loading</div>
+    <Preloader />
   ) : (
     <>
       <div
