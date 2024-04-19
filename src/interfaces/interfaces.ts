@@ -1,3 +1,5 @@
+import { MouseEventHandler } from "react";
+
 export interface INavigationItem {
   id: number;
   name: string;
@@ -56,14 +58,16 @@ export interface IProductItemProps {
 export interface IOrderItemProps {
   title: string;
   date: string;
-  sum: number;
+  sum?: number;
   products: IProductItemProps[];
   id: number | string;
-  nameOrder: string;
-  photo: string;
-  countProducts: number;
+  nameOrder?: string | undefined;
+  photo?: string | undefined;
+  countProducts?: number | undefined;
   openProducts: boolean;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+  calculateOrderPrice?: (index: number) => number;
+  handleDeleteClick?: () => void | undefined;
 }
 
 export interface IOrderProductsProps {
@@ -78,4 +82,13 @@ export interface IOrderProductProps {
   serialNumber: string | number;
   inPopup?: boolean;
   handleDeleteClick?: () => void;
+}
+
+export interface IPopupProps {
+  closePopup: MouseEventHandler<HTMLButtonElement>;
+  children: React.ReactNode;
+  title: string;
+  onClickDelete: React.MouseEventHandler<HTMLButtonElement>;
+  onClickRemove: React.MouseEventHandler<HTMLButtonElement>;
+  isPopupOpen: boolean;
 }

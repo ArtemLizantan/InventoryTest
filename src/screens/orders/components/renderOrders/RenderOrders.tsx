@@ -39,7 +39,7 @@ const RenderOrders = () => {
         }}
         className="orders__bottom"
       >
-        <div className="orders__wrapper">
+        <div className="orders__bottom-left">
           {orders.map(({ title, date, id, products }: IOrder) => (
             <OrderItems
               key={id}
@@ -53,27 +53,30 @@ const RenderOrders = () => {
             />
           ))}
         </div>
-        {selectedOrderId &&
-          orders
-            .filter(({ id }: { id: string }) => id === selectedOrderId)
-            .map(({ title, id, products }: IOrder) => (
-              <div key={id} className="orders__wrapper-products">
-                <h2 className="orders__products-title">{title}</h2>
+        <div className="orders__bottom-right">
+          {selectedOrderId &&
+            orders
+              .filter(({ id }: { id: string }) => id === selectedOrderId)
+              .map(({ title, id, products }: IOrder) => (
+                <div key={id} className="orders__wrapper-products">
+                  <h2 className="orders__products-title">{title}</h2>
 
-                <AddButton text="Добавить продукт" />
-                <CloseButton
-                  position={"absolute"}
-                  right={-20}
-                  top={-20}
-                  onClick={handleClose}
-                />
-                {products.length != 0 ? (
-                  <OrderProducts title={title} products={products} />
-                ) : (
-                  <div className="orders__nothing">Продуктов нет!</div>
-                )}
-              </div>
-            ))}
+                  <AddButton text="Добавить продукт" />
+
+                  <CloseButton
+                    position={"absolute"}
+                    right={-20}
+                    top={-20}
+                    onClick={handleClose}
+                  />
+                  {products.length != 0 ? (
+                    <OrderProducts title={title} products={products} />
+                  ) : (
+                    <div className="orders__nothing">Продуктов нет!</div>
+                  )}
+                </div>
+              ))}
+        </div>
       </div>
     </>
   );

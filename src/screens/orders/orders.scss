@@ -8,22 +8,24 @@
     align-items: flex-start;
     gap: 20px;
   }
-  &__wrapper {
+  &__bottom-left {
     display: flex;
     flex-direction: column;
     gap: 20px;
     flex: 1 1 auto;
+  }
+  &__bottom-right {
+    width: 50%;
   }
   &__products-block {
     padding: 20px;
     background-color: var(--whiteColor);
   }
   &__wrapper-products {
+    padding: 23px 30px;
     border-radius: 10px;
     background: #fff;
     box-shadow: 0px 0px 10px 0px rgba(21, 177, 39, 0.25);
-    padding: 23px 30px;
-    width: 50%;
     position: relative;
   }
   &__products-title {
@@ -31,10 +33,14 @@
     margin-bottom: 20px;
     font-weight: 600;
   }
-  &__nothing{
+  &__nothing {
     padding: 30px 0;
     font-size: 16px;
     font-weight: 700;
     text-align: center;
+  }
+  &__bottom-left,
+  &__bottom-right {
+    transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
   }
 }

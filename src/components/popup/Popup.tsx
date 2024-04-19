@@ -1,15 +1,8 @@
-import { MouseEventHandler } from "react";
 import "./popup.scss";
 import CloseButton from "../UI/closeButton/CloseButton";
 import DeletePopupButton from "../UI/deletePopupButton/DeletePopupButton";
 import CancelPopupButton from "../UI/cancelPopupButton/CancelPopupButton";
-interface IPopupProps {
-  closePopup: MouseEventHandler<HTMLButtonElement>;
-  children: React.ReactNode;
-  title: string;
-  onClickDelete: React.MouseEventHandler<HTMLButtonElement>;
-  onClickRemove: React.MouseEventHandler<HTMLButtonElement>;
-}
+import { IPopupProps } from "../../interfaces/interfaces";
 
 const Popup = ({
   children,
@@ -17,9 +10,10 @@ const Popup = ({
   title,
   onClickDelete,
   onClickRemove,
+  isPopupOpen,
 }: IPopupProps) => {
   return (
-    <div className="popup">
+    <div className={`popup ${isPopupOpen ? "open" : ""}`}>
       <div className="popup__body">
         <CloseButton
           right={-15}

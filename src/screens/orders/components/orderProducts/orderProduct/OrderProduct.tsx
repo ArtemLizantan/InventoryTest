@@ -25,8 +25,6 @@ const OrderProduct = ({
   const dispatch = useDispatch();
 
   const handleDeleteProduct = (id: number) => {
-    console.log(id);
-
     dispatch(deleteProducts(id));
   };
 
@@ -39,31 +37,29 @@ const OrderProduct = ({
         photo={photo}
         handleDeleteClick={handleDeleteClick}
       />
-      {isPopupOpen && (
-        <Popup
-          title="Удалить этот продукт?"
-          onClickRemove={handleClosePopup}
-          closePopup={handleClosePopup}
-          onClickDelete={() => handleDeleteProduct(id)}
-        >
-          <ul>
-            <OrderProductItem
-              id={id}
-              serialNumber={serialNumber}
-              title={title}
-              photo={photo}
-              inPopup={true}
-            />
-          </ul>
-        </Popup>
-      )}
+
+      <Popup
+        title="Удалить этот продукт?"
+        onClickRemove={handleClosePopup}
+        closePopup={handleClosePopup}
+        onClickDelete={() => handleDeleteProduct(id)}
+        isPopupOpen={isPopupOpen}
+      >
+        <ul>
+          <OrderProductItem
+            id={id}
+            serialNumber={serialNumber}
+            title={title}
+            photo={photo}
+            inPopup={true}
+          />
+        </ul>
+      </Popup>
     </>
   );
 };
 
-export default OrderProduct;
-
-const OrderProductItem = ({
+export const OrderProductItem = ({
   id,
   photo,
   title,
@@ -92,3 +88,5 @@ const OrderProductItem = ({
     </li>
   );
 };
+
+export default OrderProduct;
