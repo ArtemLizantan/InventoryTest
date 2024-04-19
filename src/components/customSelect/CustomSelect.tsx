@@ -1,15 +1,25 @@
 import { useState } from "react";
 import "./customSelect.scss";
 
-const CustomSelect = ({ options, onSelect }) => {
+interface Option {
+  label: string;
+  value: string;
+}
+
+interface CustomSelectProps {
+  options: Option[];
+  onSelect: (option: Option) => void;
+}
+
+const CustomSelect = ({ options, onSelect }: CustomSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleSelectOption = (option) => {
+  const handleSelectOption = (option: Option) => {
     setSelectedOption(option);
     setIsOpen(false);
     onSelect(option);

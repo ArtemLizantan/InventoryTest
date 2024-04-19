@@ -41,7 +41,7 @@ export interface IProduct {
 
 export interface IProductItemProps {
   title: string;
-  type: string;
+  type: string | undefined;
   startGuarantee?: string;
   endGuarantee?: string;
   id: number;
@@ -59,12 +59,13 @@ export interface IOrderItemProps {
   title: string;
   date: string;
   sum?: number;
-  products: IProductItemProps[];
+  products: IProduct[];
   id: number | string;
   nameOrder?: string | undefined;
   photo?: string | undefined;
   countProducts?: number | undefined;
   openProducts: boolean;
+  isOpen?: boolean;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   calculateOrderPrice?: (index: number) => number;
   handleDeleteClick?: () => void | undefined;

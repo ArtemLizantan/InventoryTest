@@ -1,7 +1,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useSelector } from "react-redux";
 import { useActions } from "../../../../hooks/useActions";
-import { RootState } from "@reduxjs/toolkit/query";
+import { RootState } from "../../../../store/store";
 import ProductItem from "../productItem/ProductItem";
 import { IProduct } from "../../../../interfaces/interfaces";
 import CustomSelect from "../../../../components/customSelect/CustomSelect";
@@ -29,8 +29,8 @@ const RenderProducts = () => {
   }, [getProducts, getOrders]);
 
   const getOrderTitleById = useMemo(() => {
-    return (orderId: number) => {
-      const order = orders.find((order) => order.id === orderId);
+    return (orderId: number | undefined) => {
+      const order = orders.find((order: IProduct) => order.id === orderId);
       return order ? order.title : "Unknown Order";
     };
   }, [orders]);
@@ -40,7 +40,9 @@ const RenderProducts = () => {
       setApplyFilter(false);
     } else {
       setApplyFilter(true);
-      const filtered = products.filter((product) => product.type === type);
+      const filtered = products.filter(
+        (product: IProduct) => product.type === type
+      );
       setFilteredProducts(filtered);
     }
   };
@@ -62,32 +64,34 @@ const RenderProducts = () => {
                   id,
                   title,
                   type,
-                  guarantee: { start, end },
+                  guarantee,
                   price,
                   photo,
                   serialNumber,
                   order,
-                }: IProduct) => (
-                  <ProductItem
-                    serialNumber={serialNumber}
-                    img={photo}
-                    key={id}
-                    type={type}
-                    id={id}
-                    title={title}
-                    startGuarantee={start}
-                    endGuarantee={end}
-                    price={price}
-                    orderTitle={getOrderTitleById(order)}
-                  />
-                )
+                }: IProduct) => {
+                  return (
+                    <ProductItem
+                      serialNumber={serialNumber}
+                      img={photo}
+                      key={id}
+                      type={type}
+                      id={id}
+                      title={title}
+                      startGuarantee={guarantee?.start}
+                      endGuarantee={guarantee?.end}
+                      price={price || []}
+                      orderTitle={getOrderTitleById(order)}
+                    />
+                  );
+                }
               )
             : products.map(
                 ({
                   id,
                   title,
                   type,
-                  guarantee: { start, end },
+                  guarantee,
                   price,
                   photo,
                   serialNumber,
@@ -100,9 +104,9 @@ const RenderProducts = () => {
                     type={type}
                     id={id}
                     title={title}
-                    startGuarantee={start}
-                    endGuarantee={end}
-                    price={price}
+                    startGuarantee={guarantee?.start}
+                    endGuarantee={guarantee?.end}
+                    price={price || []}
                     orderTitle={getOrderTitleById(order)}
                   />
                 )

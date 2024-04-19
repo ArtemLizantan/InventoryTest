@@ -1,4 +1,3 @@
-import { RootState } from "@reduxjs/toolkit/query";
 import { useSelector } from "react-redux";
 import { useActions } from "../../../../hooks/useActions";
 import { useCallback, useEffect, useState } from "react";
@@ -8,6 +7,7 @@ import OrderProducts from "../orderProducts/OrderProducts";
 import CloseButton from "../../../../components/UI/closeButton/CloseButton";
 import AddButton from "../../../../components/UI/addButton/AddButton";
 import Preloader from "../../../../components/preloader/Preloader";
+import { RootState } from "../../../../store/store";
 
 const RenderOrders = () => {
   const { orders, isLoading } = useSelector((state: RootState) => state.orders);
@@ -50,7 +50,7 @@ const RenderOrders = () => {
               date={date}
               openProducts={!selectedOrderId}
               isOpen={id === selectedOrderId}
-              onClick={() => handleOrderClick(id)}
+              onClick={() => handleOrderClick(id.toString())}
             />
           ))}
         </div>

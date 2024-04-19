@@ -29,15 +29,17 @@ const OrderItems = ({
   const calculateOrderPrice = (index: number) => {
     let totalPrice = 0;
     products.forEach((product) => {
-      const sumInDollars = product.price[index];
-      totalPrice += sumInDollars.value;
+      if (product.price !== undefined) {
+        const sumInDollars = product.price[index];
+        totalPrice += sumInDollars.value;
+      }
     });
     return totalPrice;
   };
 
   const dispatch = useDispatch();
 
-  const handleDeleteOrder = (id: number) => {
+  const handleDeleteOrder = (id: number | string) => {
     dispatch(deleteOrder(id));
   };
 
@@ -47,7 +49,6 @@ const OrderItems = ({
         openProducts={openProducts}
         title={title}
         onClick={onClick}
-        openProducts={openProducts}
         calculateOrderPrice={calculateOrderPrice}
         date={date}
         products={products}

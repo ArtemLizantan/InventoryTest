@@ -23,7 +23,7 @@ const ProductItem = ({
           <div className="product-item__underline">{title}</div>
           <div className="product-item__serialNumber">{serialNumber}</div>
         </div>
-        <div className="product-item__info">{type}</div>
+        <div className="product-item__info">{type !== undefined && type}</div>
         <div className="product-item__info">
           <div className="product-item__underline">{orderTitle}</div>
         </div>
@@ -38,7 +38,8 @@ const ProductItem = ({
           </div>
         </div>
         <div className="product-item__info product-item__currency">
-          {price.length > 0 &&
+          {price !== undefined &&
+            price.length > 0 &&
             price.map(({ value, symbol }, index) => (
               <React.Fragment key={index}>
                 <span

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
+type ComponentType<T = object> = React.FC<T>;
 
-const transition = (OgComponent) => {
+const transition = (OgComponent: ComponentType) => {
   return () => (
     <>
       <OgComponent />
