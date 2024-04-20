@@ -12,11 +12,11 @@ const fetchOrders = () => {
   });
 };
 
-export const getOrders = createAsyncThunk("orders", async (_, thunkApi) => {
+export const getOrders = createAsyncThunk("orders", async () => {
   try {
     const response = await fetchOrders();
     return response;
   } catch (error) {
-    thunkApi.rejectWithValue({ error });
+    console.log(error);
   }
 });

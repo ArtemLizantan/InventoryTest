@@ -11,6 +11,7 @@ export interface INavigationItemProps {
 }
 
 export interface IOrder {
+  type: string;
   id: string | number;
   title: string;
   date: string;

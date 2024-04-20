@@ -30,7 +30,7 @@ const RenderProducts = () => {
 
   const getOrderTitleById = useMemo(() => {
     return (orderId: number | undefined) => {
-      const order = orders.find((order: IProduct) => order.id === orderId);
+      const order = orders.find((order) => order.id === orderId);
       return order ? order.title : "Unknown Order";
     };
   }, [orders]);
@@ -40,9 +40,7 @@ const RenderProducts = () => {
       setApplyFilter(false);
     } else {
       setApplyFilter(true);
-      const filtered = products.filter(
-        (product: IProduct) => product.type === type
-      );
+      const filtered = products.filter((product) => product.type === type);
       setFilteredProducts(filtered);
     }
   };
@@ -69,7 +67,7 @@ const RenderProducts = () => {
                   photo,
                   serialNumber,
                   order,
-                }: IProduct) => {
+                }) => {
                   return (
                     <ProductItem
                       serialNumber={serialNumber}
@@ -96,7 +94,7 @@ const RenderProducts = () => {
                   photo,
                   serialNumber,
                   order,
-                }: IProduct) => (
+                }) => (
                   <ProductItem
                     serialNumber={serialNumber}
                     img={photo}

@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { IProduct } from "../../interfaces/interfaces";
 
 const fetchProdcuts = () => {
   return new Promise((resolve) => {
@@ -6,6 +7,7 @@ const fetchProdcuts = () => {
       .then((response) => {
         return response.json();
       })
+
       .then((data) => {
         resolve(data);
       });
@@ -15,7 +17,7 @@ const fetchProdcuts = () => {
 export const getProducts = createAsyncThunk("products", async (_, thunkApi) => {
   try {
     const response = await fetchProdcuts();
-    return response;
+    return response as IProduct[];
   } catch (error) {
     thunkApi.rejectWithValue({ error });
   }

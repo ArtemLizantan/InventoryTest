@@ -57,7 +57,7 @@ const RenderOrders = () => {
         <div className="orders__bottom-right">
           {selectedOrderId &&
             orders
-              .filter(({ id }: { id: string }) => id === selectedOrderId)
+              .filter(({ id }) => id === selectedOrderId)
               .map(({ title, id, products }: IOrder) => (
                 <div key={id} className="orders__wrapper-products">
                   <h2 className="orders__products-title">{title}</h2>

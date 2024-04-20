@@ -29,8 +29,9 @@ export const ordersSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getOrders.fulfilled, (state, action) => {
+        const payload = action.payload as IOrder[];
         state.isLoading = false;
-        state.orders = action.payload;
+        state.orders = payload;
       })
       .addCase(getOrders.rejected, (state, action) => {
         state.isLoading = false;
