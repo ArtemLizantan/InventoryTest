@@ -29,7 +29,7 @@ const RenderProducts = () => {
   }, [getProducts, getOrders]);
 
   const getOrderTitleById = useMemo(() => {
-    return (orderId: number | undefined) => {
+    return (orderId: string | undefined) => {
       const order = orders.find((order) => order.id === orderId);
       return order ? order.title : "Unknown Order";
     };
@@ -79,7 +79,7 @@ const RenderProducts = () => {
                       startGuarantee={guarantee?.start}
                       endGuarantee={guarantee?.end}
                       price={price || []}
-                      orderTitle={getOrderTitleById(order)}
+                      orderTitle={getOrderTitleById(order?.toString())}
                     />
                   );
                 }
@@ -105,7 +105,7 @@ const RenderProducts = () => {
                     startGuarantee={guarantee?.start}
                     endGuarantee={guarantee?.end}
                     price={price || []}
-                    orderTitle={getOrderTitleById(order)}
+                    orderTitle={getOrderTitleById(order?.toString())}
                   />
                 )
               )}
