@@ -1,0 +1,1 @@
+import{j as t}from"./index-DIquSlHJ.js";import{t as s}from"./transition-DYwsXx9t.js";const e=()=>t.jsx("section",{className:"settings",children:t.jsx("div",{className:"empty",children:"Здесь еще ничего нет!"})}),r=s(e);export{r as default};
