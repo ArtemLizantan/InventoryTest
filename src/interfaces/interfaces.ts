@@ -1,4 +1,9 @@
 import { MouseEventHandler } from "react";
+import { ReactNode } from "react";
+
+export interface ILayoutProps {
+  children: ReactNode;
+}
 
 export interface INavigationItem {
   id: number;
@@ -93,4 +98,14 @@ export interface IPopupProps {
   onClickDelete: React.MouseEventHandler<HTMLButtonElement>;
   onClickRemove: React.MouseEventHandler<HTMLButtonElement>;
   isPopupOpen: boolean;
+}
+
+export interface Option {
+  label: string;
+  value: string;
+}
+
+export interface CustomSelectProps {
+  options: Option[];
+  onSelect: (option: Option) => void;
 }

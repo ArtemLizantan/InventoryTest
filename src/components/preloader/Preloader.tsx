@@ -1,8 +1,15 @@
 import "./preloader.scss";
 
-const Preloader = () => {
+interface IPreloaderProps {
+  mainPreloader?: boolean;
+}
+
+const Preloader = ({ mainPreloader }: IPreloaderProps) => {
   return (
-    <div className="preloader">
+    <div
+      style={{ minHeight: mainPreloader ? "100vh" : "70vh" }}
+      className="preloader"
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 100 100"

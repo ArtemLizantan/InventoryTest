@@ -1,8 +1,4 @@
-import { ReactNode } from "react";
-
-interface ILayoutProps {
-  children: ReactNode;
-}
+import { ILayoutProps } from "../../interfaces/interfaces";
 
 const Layout = ({ children }: ILayoutProps) => {
   return <main>{children}</main>;
