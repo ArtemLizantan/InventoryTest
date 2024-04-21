@@ -1,0 +1,1 @@
+import{j as s}from"./index-nsV1Whp_.js";import{t as e,H as r}from"./Helmet-DXrvendf.js";const t=()=>s.jsxs(s.Fragment,{children:[s.jsx(r,{children:s.jsx("title",{children:"Users"})}),s.jsx("section",{className:"users",children:s.jsx("div",{className:"empty",children:"Здесь еще ничего нет!"})})]}),a=e(t);export{a as default};

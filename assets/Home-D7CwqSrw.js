@@ -1,0 +1,1 @@
+import{j as t}from"./index-nsV1Whp_.js";import{t as e,H as o}from"./Helmet-DXrvendf.js";const r=()=>t.jsx("div",{children:t.jsx(o,{children:t.jsx("title",{children:"Home"})})}),m=e(r);export{m as default};

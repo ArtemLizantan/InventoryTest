@@ -1,1 +1,0 @@
-import{j as t,a as o,r,c as a,o as c,p as e}from"./index-DIquSlHJ.js";const p=({text:s})=>t.jsx("h2",{className:"main-title",children:s}),n={...c,...e},u=()=>{const s=o();return r.useMemo(()=>a(n,s),[s])};export{p as T,u};
