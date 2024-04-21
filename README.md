@@ -1,3 +1,28 @@
+Инструкции по запуску проекта
+
+Сначала склонируйте репозиторий проекта с GitHub:
+git clone https://github.com/ArtemLizantan/InventoryTest.git
+
+Перейдите в корневую папку проекта:
+cd InventoryTest
+
+Установите все необходимые зависимости через npm:
+npm install
+
+Запустите локальный сервер проекта:
+npm run server
+Этот сервер будет доступен по адресу http://localhost:5173/InventoryTest/orders.
+
+Откройте второй терминал и запустите команду для запуска локальной клиентской части:
+npm run dev
+Это позволит запустить клиентскую часть проекта для разработки.
+
+Для доступа к серверу для заказов и продуктов используйте следующие адреса:
+Заказы: http://localhost:3000/orders
+Продукты: http://localhost:3000/products
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
