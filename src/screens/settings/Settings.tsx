@@ -1,10 +1,17 @@
+import { Helmet } from "react-helmet";
 import transition from "../../transition";
 
 const Settings = () => {
   return (
-    <section className="settings">
-      <div className="empty">Здесь еще ничего нет!</div>
-    </section>
+    <>
+      <Helmet>
+        <title>Settings</title>
+      </Helmet>
+
+      <section className="settings">
+        <div className="empty">Здесь еще ничего нет!</div>
+      </section>
+    </>
   );
 };
 

@@ -1,10 +1,17 @@
+import { Helmet } from "react-helmet";
 import transition from "../../transition";
 
 const Groups = () => {
   return (
-    <section className="groups">
-      <div className="empty">Здесь еще ничего нет!</div>
-    </section>
+    <>
+      <Helmet>
+        <title>Groups</title>
+      </Helmet>
+
+      <section className="groups">
+        <div className="empty">Здесь еще ничего нет!</div>
+      </section>
+    </>
   );
 };
 
